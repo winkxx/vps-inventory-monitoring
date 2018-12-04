@@ -50,11 +50,11 @@ class VpsTest extends Command{
                             go_curl("https://sc.ftqq.com/{$v['ftsckey']}.send","post", ["text"=>$title,"desp"=>$content]);
                         }//server 酱
                         if ($v["tgsckey"] != ""){
-                            go_curl("https://cloud.hcaiyue.top/tgbot.php","post", ["method"=>"send","content"=>$content,"sckey"=>$v["tgsckey"]]);
+                            go_curl("https://vps.honoka.club/tgbot.php","post", ["method"=>"send","content"=>$content,"sckey"=>$v["tgsckey"]]);
                         }
                     }
                     if (config("app.tgchannelsckey") != ""){
-                        go_curl("https://cloud.hcaiyue.top/tgbot.php","post", ["method"=>"send","content"=>$content,"sckey"=>config("app.tgchannelsckey")]);
+                        go_curl("https://vps.honoka.club/tgbot.php","post", ["method"=>"send","content"=>$content,"sckey"=>config("app.tgchannelsckey")]);
                     }
                     
                 }

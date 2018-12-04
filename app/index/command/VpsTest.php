@@ -43,12 +43,12 @@ class VpsTest extends Command{
                 }
                 if ($value["stock"] == false && $a == true){
                     $p = $user->where("find_in_set({$value['id']},subscribe)")->select();
-                    $title = "您关注的{$value['name']}有货啦。";
-                    $content = "您关注的{$value['name']}有货啦。\n快来大肆抢购呀。\n测评地址：$host/ceping/{$value['id']}\n购买地址：$host/buy/{$value['id']}";
+                    $title = "补货辣";
+                    $content = "{$value['companyname']} 的 {$value['name']} 补货了。\n{$value['cpu']}核心\n {$value['ram']}内存\n {$value['disk']}硬盘\n{$value['flow']}流量\n {$value['bandwidth']}带宽\n测评地址：$host/ceping/{$value['id']}\n购买地址：$host/buy/{$value['id']}";
                     foreach ($p as $k => $v) {
                         if ($v["ftsckey"] != ""){
                             go_curl("https://sc.ftqq.com/{$v['ftsckey']}.send","post", ["text"=>$title,"desp"=>$content]);
-                        }
+                        }//server 酱
                         if ($v["tgsckey"] != ""){
                             go_curl("https://cloud.hcaiyue.top/tgbot.php","post", ["method"=>"send","content"=>$content,"sckey"=>$v["tgsckey"]]);
                         }
@@ -56,6 +56,10 @@ class VpsTest extends Command{
                     if (config("app.tgchannelsckey") != ""){
                         go_curl("https://cloud.hcaiyue.top/tgbot.php","post", ["method"=>"send","content"=>$content,"sckey"=>config("app.tgchannelsckey")]);
                     }
+                    $result = Request::sendMessage([
+                        'chat_id' => config.("app.channelid"),
+                        'text'    => $content,
+                    ]);
                 }
                 sleep(5);
             }

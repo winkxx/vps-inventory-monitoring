@@ -126,10 +126,17 @@
                         <label  class="col-sm-2 control-label">验证函数(PHP语言)</label>
                         <div class="col-sm-10">
                         <textarea  class="form-control" style="height:170px;" name="vf">
-if(strpos($str,"缺貨中")!==false){
-    return false;
-}
-return true;
+                            if ($curl["Code"] != 200){ //首先判断状态码
+                                return false;
+                            }
+                            if (strpos($str,"50KVM")==false){ //检测是否正常打开有无公司名字之类关键词
+                                return $value["stock"]; //返回原库存状态
+                            }
+                            if (strpos($str,"缺货中")!==false){ //检测是否含有缺货关键词
+                                return false; 
+                            }
+                            return true;
+                            
                         </textarea>
                         </div>
                     </div>

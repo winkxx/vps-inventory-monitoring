@@ -44,7 +44,7 @@ class VpsTest extends Command{
                 if ($value["stock"] == false && $a == true){
                     $p = $user->where("find_in_set({$value['id']},subscribe)")->select();
                     $title = "补货辣";
-                    $content = "{$value['companyname']} 的 {$value['name']} 补货了。\n{$value['cpu']}核心\n {$value['ram']}内存\n {$value['disk']}硬盘\n{$value['flow']}流量\n {$value['bandwidth']}带宽\n测评地址：$host/ceping/{$value['id']}\n购买地址：$host/buy/{$value['id']}";
+                    $content = "{$value['companyname']} 的 {$value['name']} 补货了。\n{$value['cpu']}核心\n {$value['ram']}内存\n {$value['disk']}硬盘\n{$value['flow']}流量\n {$value['bandwidth']}带宽\n备注：{$value['remark']}\n测评地址：$host/ceping/{$value['id']}\n购买地址：$host/buy/{$value['id']}";
                     foreach ($p as $k => $v) {
                         if ($v["ftsckey"] != ""){
                             go_curl("https://sc.ftqq.com/{$v['ftsckey']}.send","post", ["text"=>$title,"desp"=>$content]);

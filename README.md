@@ -1,10 +1,6 @@
-# 欢迎使用 vps-inventory-monitoring 监控系统
-
-------
-
 这是一个在实际应用场景下的软件。
-通过Curl 抓取网页源代码 来监控 目标字段的变化 **实时把握库存信息**   
-[Demo](http://vps.hcaiyue.top)
+通过Curl 抓取网页源代码 来监控 目标字段的变化, 实时把握库存信息並完成 TG 频道的推送。  
+[Demo](http://vps.honoka.club)
 
 ## 环境说明
 

@@ -1,5 +1,5 @@
-这是一个在实际应用场景下的软件。
-通过Curl 抓取网页源代码 来监控 目标字段的变化, 实时把握库存信息並完成 TG 频道的推送。  
+# 这个项目能干什么？
+通过 curl 抓取网页源代码，监控目标字段的变化, 判断 VPS 是否补货并完成 TG 频道推送。  
 [Demo](http://vps.honoka.club)
 
 ## 环境说明
@@ -8,16 +8,16 @@
 php ^ 5.5.0
 ```
 
-## 安装指南
+## 简洁安装指南
 
 
-1.创建数据库导入数据库文件mysql.sql
+1.创建数据库导入数据库文件 `mysql.sql`
 
-2.修改数据库配置文件 vps-inventory-monitoring/app/database.example.php [需要重命名为database.php]
+2.修改数据库配置文件 `RestockPusher/app/database.example.php` 重命名为 `RestockPusher/app/database.php`
 
-3.配置Web服务器运行目录 vps-inventory-monitoring/public  
+3.将 Web 服务器运行目录设置为 `RestockPusher/public`
 
-4.修改系统配置 app/index/config.php 定时时间 域名 等  
+4.修改系统配置 `RestockPusher/app/index/config.php` 定时时间 域名 等  
 
 5.SSH 进入网站目录 运行 `php think VpsTest ` 系统开始自动验证 
 
@@ -29,18 +29,9 @@ php ^ 5.5.0
 
 1.添加页面出现404错误  ==> 设置Url ReWrite  
 
-2.添加后不会检测       ==> 修改数据库xm_index的status为1(1视为通过审核)  
+2.添加后不会检测       ==> 修改数据库`xm_index`的`status`为`1`(`1`视为通过审核)  
 
-3.添加权限管理         ==> app/index/config.php    
-
-4.设置后台运行验证程序  ==> 
->screen -S vpstest  //创建screen  
-cd [网站根目录]  
-php think VpsTest  
-CTRL A D //退出screen  
-然后关闭ssh即可
-重新进入查看可使用  
-screen -r vpstest
+3.添加权限管理         ==> `app/index/config.php` 中的第`5`行，把你的 userid 添加进去. 
 
 5.待更新
 
@@ -65,30 +56,3 @@ if (strpos($str,"缺货中")!==false){ //检测是否含有缺货关键词
 return true;
 ```
 ---
-## 更新日志
-2018-08-27  
-更新thinkphp内核版本为5.0.20优化php7执行效率 感谢[@Blake-Bill](https://github.com/Blake-Bill)  
-
-2018-06-01  
-增加注册验证码  
-增加多线程监测 更快的速度  
-
-2018-04-07  
-更新go_curl函数返回更多可用信息
-添加调试功能
-
-2018-03-23   
-更新Telegram推送支持 频道推送和私人定制推送  
-频道推送需后台设置sckey和频道链接  
-配置文件 app/index/config.php    
-
-2018-03-19  
-更新命令行方式验证
-
-2018-03-18  
-根据[#3](https://github.com/546669204/vps-inventory-monitoring/issues/3)进行改进
-
-1.个性化的产品来货推送  
-2.跳转链接的简化  
-3.增加筛选功能  
-4.增加添加权限控制

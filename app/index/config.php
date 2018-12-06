@@ -9,6 +9,5 @@ return [
         'tgchannelsckey' => '8009+OrTUX2oY4K/X5GfAPsFyF+S+6OCUQLo7uUfUkyk3sPvnZZmyK986w', // 邀请 https://t.me/HonokaVPS_StockBot 进入频道 设置为管理员 然后在频道发送 /start 获取sckey 填入
         'testdebug' => false, //是否输出调试信息到文件
         'captcha' => true,//启动验证码
-        'channelid' => ''//頻道地址
     ],
 ];

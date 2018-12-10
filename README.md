@@ -11,17 +11,19 @@ php ^ 5.5.0
 ## 简洁安装指南
 
 
-1.创建数据库导入数据库文件 `mysql.sql`
+1. 创建数据库导入数据库文件 `mysql.sql`
 
-2.修改数据库配置文件 `RestockPusher/app/database.example.php` 重命名为 `RestockPusher/app/database.php`
+2. 安装依赖
 
-3.将 Web 服务器运行目录设置为 `RestockPusher/public`
+3. 修改数据库配置文件 `RestockPusher/app/database.example.php` 重命名为 `RestockPusher/app/database.php`
 
-4.修改系统配置 `RestockPusher/app/index/config.php` 定时时间 域名 等  
+4. 将 Web 服务器运行目录设置为 `RestockPusher/public`
 
-5.SSH 进入网站目录 运行 `php think VpsTest` 系统开始自动验证 
+5. 修改系统配置 `RestockPusher/app/index/config.php` 定时时间 域名 等  
 
-6.访问即可查看结果
+6. SSH 进入网站目录 运行 `php think VpsTest` 系统开始自动验证 
+
+7. 访问即可查看结果
 
 -----
 

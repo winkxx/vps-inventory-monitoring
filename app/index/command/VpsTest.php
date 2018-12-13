@@ -18,7 +18,7 @@ class VpsTest extends Command{
     }
     protected function execute(Input $input, Output $output){
         //获取参数值
-        Config::load(APP_PATH . 'index/config.php'); 
+        Config::load('config/config.php'); 
         $log = new Log;
         $index =  new Index;
         $user = new User;

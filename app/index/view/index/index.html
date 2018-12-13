@@ -82,7 +82,7 @@
                             <th data-width="50" data-field="monthly" data-sortable="true">月付</th>
                             <th data-width="50" data-field="stock" data-sortable="true" data-formatter="stock" data-filter-control="select">库存状态</th>
                             <th data-width="50" data-field="remark" data-sortable="true" data-filter-control="input">备注</th>
-                            <th data-width="50" data-formatter="ceping" >介绍&测评</th>
+                            <th data-width="50" data-formatter="ceping" >介绍/测评</th>
                             <th data-width="50" data-formatter="buy">购买</th>
                         </tr>
                     </thead>
@@ -164,9 +164,9 @@
 #table td{vertical-align:middle;text-align:center;}
 </style>
     <script>
-        function bandwidth(value,row,index){
-            return value + "M";
-        }
+        //function bandwidth(value,row,index){
+        //    return value + "M";
+        //}
         function stock(value,row,index){
             return value==0?'<p class="btn btn-danger btn-sm">缺货</p>':'<p class="btn btn-success btn-sm">有货</p>';
         }

@@ -109,7 +109,8 @@ function authcode($string,$operation='DECODE',$key='',$expiry=0){
 	}
 }
 function sendmessage($data){
-	go_curl("https://api.telegram.org/bot[token]/sendMessage","POST",$data);
+	Config::load('config/config.php');
+	go_curl("https://api.telegram.org/bot{$v['bot_token']}/sendMessage","POST",$data);
 }
 //file_put_contents("text.txt",file_get_contents("php://input")."\n\n\n",FILE_APPEND); //debug output
 if (isset($_POST["method"]) && $_POST["method"] == "send"){
